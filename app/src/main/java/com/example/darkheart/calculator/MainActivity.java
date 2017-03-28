@@ -2,6 +2,7 @@ package com.example.darkheart.calculator;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,13 +16,14 @@ public class MainActivity extends AppCompatActivity {
 
         final double[] total = {0};
         double tmp = 0;
-        final boolean[] calcPressed = {false};
+        final boolean[] calcPressed = {false}; //when calculation is required
         final int[] init = {0};
         final boolean[] calcPlus = {false};
         final boolean[] calcMinus = {false};
         final boolean[] calcMult = {false};
         final boolean[] calcDiv = {false};
-        final boolean[] decimal = {false};
+        final boolean[] decimal = {false}; //when is about to enter decimal
+        final boolean[] begin = {true};
 
         //Numerical Buttons
         Button Button9 = (Button)findViewById(R.id.number9);
@@ -50,9 +52,16 @@ public class MainActivity extends AppCompatActivity {
                 total[0] = 0;
                 init[0] = 0;
                 decimal[0] = false;
+                begin[0] = true;
+                calcPressed[0] = false;
+                calcPlus[0] = false;
+                calcMinus[0] = false;
+                calcMult[0] = false;
+                calcDiv[0] =false;
+
                 Total.setText("0");
 
-                return;
+
             }
         });
 
@@ -61,15 +70,20 @@ public class MainActivity extends AppCompatActivity {
                 TextView Total = (TextView)findViewById(R.id.totalView);
                 CharSequence prevText = Total.getText();
 
+                Log.v("", "" + begin[0]);
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
+
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
+                    //init[0]++;
+                    //|| ( (init[0] == 0) ) ||
                 }
 
                 Total.setText(prevText+"9");
 
-                return;
+
             }
         });
 
@@ -79,14 +93,14 @@ public class MainActivity extends AppCompatActivity {
                 CharSequence prevText = Total.getText();
 
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"8");
 
-                return;
             }
         });
 
@@ -96,14 +110,14 @@ public class MainActivity extends AppCompatActivity {
                 CharSequence prevText = Total.getText();
 
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"7");
 
-                return;
             }
         });
 
@@ -112,14 +126,14 @@ public class MainActivity extends AppCompatActivity {
                 TextView Total = (TextView)findViewById(R.id.totalView);
                 CharSequence prevText = Total.getText();
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString() +"6");
 
-                return;
             }
         });
 
@@ -128,14 +142,14 @@ public class MainActivity extends AppCompatActivity {
                 TextView Total = (TextView)findViewById(R.id.totalView);
                 CharSequence prevText = Total.getText();
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"5");
 
-                return;
             }
         });
 
@@ -144,14 +158,14 @@ public class MainActivity extends AppCompatActivity {
                 TextView Total = (TextView)findViewById(R.id.totalView);
                 CharSequence prevText = Total.getText();
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"4");
 
-                return;
             }
         });
 
@@ -160,14 +174,14 @@ public class MainActivity extends AppCompatActivity {
                 TextView Total = (TextView)findViewById(R.id.totalView);
                 CharSequence prevText = Total.getText();
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"3");
 
-                return;
             }
         });
 
@@ -177,14 +191,14 @@ public class MainActivity extends AppCompatActivity {
                 CharSequence prevText = Total.getText();
 
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"2");
 
-                return;
             }
         });
 
@@ -194,14 +208,14 @@ public class MainActivity extends AppCompatActivity {
                 CharSequence prevText = Total.getText();
 
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"1");
 
-                return;
             }
         });
 
@@ -211,14 +225,14 @@ public class MainActivity extends AppCompatActivity {
                 CharSequence prevText = Total.getText();
 
 
-                if( ( (calcPressed[0] == true) || (init[0] == 0) ) && (decimal[0] == false) ) {
+                if( ( (calcPressed[0])  || ( (begin[0]) )) && (!decimal[0]) ) {
                     prevText = "";
                     calcPressed[0] = false;
+                    begin[0] = false;
                 }
 
                 Total.setText(prevText.toString()+"0");
 
-                return;
             }
         });
 
@@ -233,17 +247,17 @@ public class MainActivity extends AppCompatActivity {
 
 
                 if(init[0] >= 2){
-                    if(calcMinus[0] == true) {
+                    if(calcMinus[0]) {
                         total[0] = total[0] - Double.parseDouble(prevText.toString());
 
                         calcMinus[0] = false;
-                    }else if(calcMult[0] == true){
+                    }else if(calcMult[0]){
 
                         total[0] = total[0] * Double.parseDouble(prevText.toString());
 
                         calcMult[0] = false;
 
-                    }else if(calcDiv[0] == true){
+                    }else if(calcDiv[0]){
 
                         total[0] = total[0] / Double.parseDouble(prevText.toString());
 
@@ -270,7 +284,6 @@ public class MainActivity extends AppCompatActivity {
                 calcPlus[0] = true;
                 decimal[0] = false;
 
-                return;
             }
         });
 
@@ -283,15 +296,15 @@ public class MainActivity extends AppCompatActivity {
                 init[0]++;
 
                 if(init[0] >= 2){
-                    if(calcPlus[0] == true) {
+                    if(calcPlus[0]) {
                         total[0] = total[0] + Double.parseDouble(prevText.toString());
 
                         calcPlus[0] = false;
-                    }else if(calcMult[0] == true){
+                    }else if(calcMult[0]){
                         total[0] = total[0] * Double.parseDouble(prevText.toString());
 
                         calcMult[0] = false;
-                    }else if(calcDiv[0] == true){
+                    }else if(calcDiv[0]){
 
                         total[0] = total[0] / Double.parseDouble(prevText.toString());
 
@@ -318,7 +331,6 @@ public class MainActivity extends AppCompatActivity {
 
                 calcMinus[0] = true;
 
-                return;
             }
         });
 
@@ -331,15 +343,15 @@ public class MainActivity extends AppCompatActivity {
                 init[0]++;
 
                 if(init[0] >= 2){
-                    if(calcPlus[0] == true) {
+                    if(calcPlus[0] ) {
                         total[0] = total[0] + Double.parseDouble(prevText.toString());
 
                         calcPlus[0] = false;
-                    }else if(calcMinus[0] == true) {
+                    }else if(calcMinus[0] ) {
                         total[0] = total[0] - Double.parseDouble(prevText.toString());
 
                         calcMinus[0] = false;
-                    }else if(calcDiv[0] == true){
+                    }else if(calcDiv[0]){
 
                         total[0] = total[0] / Double.parseDouble(prevText.toString());
 
@@ -366,7 +378,6 @@ public class MainActivity extends AppCompatActivity {
 
                 calcMult[0] = true;
 
-                return;
             }
         });
 
@@ -379,15 +390,15 @@ public class MainActivity extends AppCompatActivity {
                 init[0]++;
 
                 if(init[0] >= 2){
-                    if(calcPlus[0] == true) {
+                    if(calcPlus[0]) {
                         total[0] = total[0] + Double.parseDouble(prevText.toString());
 
                         calcPlus[0] = false;
-                    }else if(calcMinus[0] == true) {
+                    }else if(calcMinus[0] ) {
                         total[0] = total[0] - Double.parseDouble(prevText.toString());
 
                         calcMinus[0] = false;
-                    }else if(calcMult[0] == true) {
+                    }else if(calcMult[0] ) {
                         total[0] = total[0] * Double.parseDouble(prevText.toString());
 
                         calcMinus[0] = false;
@@ -410,8 +421,6 @@ public class MainActivity extends AppCompatActivity {
                     Total.setText(Double.valueOf(total[0]).toString());
 
                 calcDiv[0] = true;
-
-                return;
             }
         });
 
@@ -422,17 +431,17 @@ public class MainActivity extends AppCompatActivity {
 
                 calcPressed[0] = true;
 
-                if(calcPlus[0] == true) {
+                if(calcPlus[0] ) {
                     total[0] = total[0] + Double.parseDouble(prevText.toString());
 
-                }else if(calcMult[0] == true){
+                }else if(calcMult[0] ){
                     total[0] = total[0] * Double.parseDouble(prevText.toString());
 
-                }else if(calcDiv[0] == true){
+                }else if(calcDiv[0] ){
 
                     total[0] = total[0] / Double.parseDouble(prevText.toString());
 
-                }else if(calcMinus[0] == true) {
+                }else if(calcMinus[0] ) {
                     total[0] = total[0] - Double.parseDouble(prevText.toString());
                 }
 
@@ -440,7 +449,10 @@ public class MainActivity extends AppCompatActivity {
                 calcMult[0] = false;
                 calcDiv[0] = false;
                 calcMinus[0] = false;
+                calcPressed[0] = false;
+                decimal[0] = false;
                 init[0] = 0;
+                begin[0] = true;
 
                 if( (total[0] > 999999999) || total[0] < -99999999 ){
                     Total.setText("No space!!");
@@ -453,7 +465,6 @@ public class MainActivity extends AppCompatActivity {
                 else
                     Total.setText(Double.valueOf(total[0]).toString());
 
-                return;
             }
         });
 
@@ -464,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
                 CharSequence prevText = Total.getText();
 
 
-                if(calcPressed[0] == true){
+                if(calcPressed[0] ){
                     prevText = "";
                     calcPressed[0] = false;
                 }
@@ -473,7 +484,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Total.setText(prevText+".");
 
-                return;
             }
         });
 
